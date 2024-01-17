@@ -136,7 +136,7 @@ public class BlockInfusedGrain extends BlockCrops implements ITTinkererBlock {
             if (tileGrain != null) {
                 ItemInfusedSeeds.setAspectTendencies(seedStack, tileGrain.primalTendencies);
             }
-            while (rand.nextInt(10000) < Math.pow(getPrimalTendencyCount(world, x, y, z, Aspect.ENTROPY) + fortune, 2)) {
+            while (rand.nextInt(10000) < Math.min(Math.pow(getPrimalTendencyCount(world, x, y, z, Aspect.ENTROPY) + fortune, 2),7500)) {
                 seedStack.stackSize++;
             }
             ret.add(seedStack);
