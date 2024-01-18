@@ -70,7 +70,7 @@ public abstract class BlockFireBase extends BlockFire implements ITTinkererBlock
 
     @Override
     public int tickRate(World p_149738_1_) {
-        return ConfigHandler.enableFireMechanics ? 200 : 0x7ffffff0;
+        return ConfigHandler.enableFireMechanics ? 150 : 0x7ffffff0;
     }
 
     public void setBlockWithTransmutationTarget(World world, int x, int y, int z, int meta, Block block) {
@@ -102,7 +102,7 @@ public abstract class BlockFireBase extends BlockFire implements ITTinkererBlock
         final int blockMeta = world.getBlockMetadata(x, y, z);
 
         // Source block doesn't burn out
-        if (blockMeta != 0 && !isNeighborTarget(world, x, y, z)) {
+        if (blockMeta != 0 && !isNeighborTarget(world, x, y, z) && rand.nextInt(100)<50) {
             // Extinguish if there's no valid fuel around
             world.setBlockToAir(x, y, z);
             return;
@@ -110,7 +110,7 @@ public abstract class BlockFireBase extends BlockFire implements ITTinkererBlock
         }
 
         // Check Transforms
-        if (rand.nextInt(20) == 0 && (isNeighborTarget(world, x, y, z))) {
+        if (rand.nextInt(17) == 0 && (isNeighborTarget(world, x, y, z))) {
             for (final ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
                 final int xT = x + dir.offsetX;
                 final int yT = y + dir.offsetY;
@@ -195,7 +195,7 @@ public abstract class BlockFireBase extends BlockFire implements ITTinkererBlock
             return 100;
         }
         if (isTransmutationResult(block, world, x, y, z)) {
-            return 0;
+            return 10;
         }
 
         return world.getBlock(x, y, z).getFlammability(world, x, y, z, face);
@@ -240,7 +240,7 @@ public abstract class BlockFireBase extends BlockFire implements ITTinkererBlock
             if (isNeighborTarget(world, x, y, z)) {
                 return 100;
             }
-            return 0;
+            return 10;
         }
     }
 
