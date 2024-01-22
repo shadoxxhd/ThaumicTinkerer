@@ -240,7 +240,7 @@ public abstract class BlockFireBase extends BlockFire implements ITTinkererBlock
             if (isNeighborTarget(world, x, y, z)) {
                 return 100;
             }
-            return 10;
+            return 0;
         }
     }
 
