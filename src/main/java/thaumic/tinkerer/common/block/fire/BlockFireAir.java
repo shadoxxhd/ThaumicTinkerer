@@ -62,6 +62,7 @@ public class BlockFireAir extends BlockFireBase {
         blockTransformation.put(Blocks.ice, Blocks.glass);
         if (ConfigHandler.enableCake) {
             blockTransformation.put(Blocks.water, Blocks.cake);
+            //blockTransformation.put(Blocks.flowing_water, Blocks.cake);
         }
         blockTransformation.put(Blocks.dirt, Blocks.sand);
         blockTransformation.put(Blocks.grass, Blocks.sand);
